@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Enemy AI Systems Detect Players During Gameplay</title>
+<meta name="description" content="Learn how enemy AI detects players through distance checks, vision cones, visibility conditions, and sensory inputs that trigger an initial response.">
+<link rel="canonical" href=""><script>document.querySelector('link[rel="canonical"]').href=window.location.href;</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How Enemy AI Systems Detect Players During Gameplay","publisher":{"@type":"Organization","name":"666cgame.net.pk"}}</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@300;400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Archivo',sans-serif;font-weight:300;background:#0e0e0e;color:#e0e0e0;line-height:1.85}
+.hero{background:#e8c820;padding:56px 28px;display:flex;gap:32px;align-items:flex-end;flex-wrap:wrap}
+.hero h1{font-family:'Archivo Black',sans-serif;font-size:2.6rem;color:#0e0e0e;line-height:1.1;flex:1;min-width:300px}
+.hero-tag{background:#0e0e0e;color:#e8c820;padding:10px 16px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;align-self:flex-start}
+main{max-width:860px;margin:0 auto;padding:50px 28px 60px}
+.intro{font-size:1.08rem;color:#aaa;margin-bottom:40px;border-left:3px solid #e8c820;padding-left:18px}
+.intro a{color:#e8c820;text-decoration:none;font-weight:700}
+h2{font-family:'Archivo Black',sans-serif;font-size:1.5rem;color:#e8e8e8;margin:44px 0 18px;font-weight:400}
+p{font-size:1.06rem;color:#888;margin-bottom:18px}
+.detect-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin:36px 0}
+.dg{background:#1a1a1a;padding:22px 20px}
+.dg:nth-child(even){background:#161616}
+.dg h4{font-size:.88rem;font-weight:700;color:#e8c820;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.dg p{font-size:.97rem;color:#666;margin:0}
+ul{padding-left:0;list-style:none;margin:24px 0}
+li{margin-bottom:14px;padding-left:22px;position:relative;font-size:1.05rem;color:#888}
+li::before{content:'▸';position:absolute;left:0;color:#e8c820}
+.note{background:#1a1a1a;border-left:3px solid #e8c820;padding:20px 22px;margin:34px 0;font-size:1.05rem;color:#aaa}
+footer{background:#0a0a0a;color:#333;text-align:center;padding:22px;font-size:.85rem;border-top:1px solid #1a1a1a;margin-top:40px}
+@media(max-width:768px){.hero h1{font-size:1.9rem}main{padding:36px 18px}.detect-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>How Enemy AI Systems Detect Players During Gameplay</h1>
+<div class="hero-tag">666cgame.net.pk</div>
+</div>
+<main>
+<p class="intro">Enemy detection is the first step in almost every AI-driven encounter. Before an enemy can attack, chase, or alert allies, it must first notice the player. Players who engage with game titles through <a href="http://666cgame.net.pk">666c</a> will find that detection quality directly shapes how fair and believable every encounter feels — detection that fires too easily removes challenge while detection that fires too slowly creates unrealistic results.</p>
+<p>Detection is not a binary switch. Well-implemented systems build awareness progressively — a distant glimpse raises suspicion, a confirmed sighting changes state. This gives players the sensation of being noticed before they are fully detected, which feels fair and creates the tension that makes encounters engaging.</p>
+<h2>Core Detection Methods</h2>
+<div class="detect-grid">
+<div class="dg"><h4>Distance Check</h4><p>The fastest and cheapest detection method. If the player is within a defined radius, the distance check passes. Often used as a fast pre-filter before more expensive checks are run.</p></div>
+<div class="dg"><h4>Vision Cone</h4><p>A forward-facing angular zone from the enemy's position. The player must be within both the distance and the angular field. Represents natural directional vision — enemies cannot see behind themselves.</p></div>
+<div class="dg"><h4>Line of Sight</h4><p>A ray cast from the enemy to the player that checks whether geometry interrupts the view. Passes only when no solid obstacle sits between the two. More expensive than the distance check but necessary for accuracy.</p></div>
+<div class="dg"><h4>Visibility Modifiers</h4><p>Light level, player movement speed, concealment, and disguise can reduce or increase effective detection range. Crouching slowly in shadow is harder to detect than running in bright light at close range.</p></div>
+</div>
+<h2>What Happens When Detection Triggers</h2>
+<p>When detection conditions are met, the enemy's state changes from unaware to alerted or directly to hostile depending on the clarity of the detection. A brief edge-of-cone glimpse might only raise suspicion. A direct unobstructed sighting at close range triggers an immediate response. The response depends on the game's alertness design, but it typically involves a state transition that changes the enemy's behaviour from its default patrol or idle activity.</p>
+<div class="note">Detection updates typically run on a timer rather than every frame — checking every 0.1 to 0.5 seconds rather than 60 times per second. This keeps detection responsive enough to feel immediate while reducing the computational cost of per-enemy line-of-sight tests in scenes with many enemies.</div>
+<ul>
+<li>Distance pre-checks eliminate far-away players before expensive ray casts are run</li>
+<li>Vision cone checks add directionality — enemies cannot detect players they are not facing</li>
+<li>Line-of-sight ray casts confirm that geometry does not block the view between enemy and player</li>
+<li>Visibility modifiers allow light, movement, and cover to influence detection probability</li>
+</ul>
+</main>
+<footer>© 2026</footer>
+</body>
+</html>
